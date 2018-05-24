@@ -31,6 +31,14 @@ app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
 });
 
+recipes.create('Chocolate Milk', ['cocoa', 'milk', 'sugar'])
+recipes.create('Honey Cashew Chicken'), ['chicken', 'honey', 'paprika', 'soy sauce', 'rotisserie spices', 'cashews']
+recipes.create('Teriyaki Salmon'), ['salmon', 'Teriyaki sauce', 'paprika', 'lemon pepper']
+
+app.get('/recipes', (req, res) => {
+	res.json(recipes.get());
+})
+
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
 });
