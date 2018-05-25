@@ -1,6 +1,7 @@
 
 const express = require('express');
 // we'll use morgan to log the HTTP layer
+const router = express.Router();
 const morgan = require('morgan');
 // we'll use body-parser's json() method to 
 // parse JSON data sent in requests to this app
@@ -25,15 +26,17 @@ ShoppingList.create('beans', 2);
 ShoppingList.create('tomatoes', 3);
 ShoppingList.create('peppers', 4);
 
+recipes.create('Chocolate Milk', ['cocoa', 'milk', 'sugar'])
+recipes.create('Honey Cashew Chicken'), ['chicken', 'honey', 'paprika', 'soy sauce', 'rotisserie spices', 'cashews']
+recipes.create('Teriyaki Salmon'), ['salmon', 'Teriyaki sauce', 'paprika', 'lemon pepper']
+
 // when the root of this route is called with GET, return
 // all current ShoppingList items by calling `ShoppingList.get()`
 app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
 });
 
-recipes.create('Chocolate Milk', ['cocoa', 'milk', 'sugar'])
-recipes.create('Honey Cashew Chicken'), ['chicken', 'honey', 'paprika', 'soy sauce', 'rotisserie spices', 'cashews']
-recipes.create('Teriyaki Salmon'), ['salmon', 'Teriyaki sauce', 'paprika', 'lemon pepper']
+
 
 app.get('/recipes', (req, res) => {
 	res.json(recipes.get());
